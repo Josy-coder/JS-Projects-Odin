@@ -1,58 +1,62 @@
 let playerScore = 0;
 let computerScore = 0;
+let playerName;
 
-function computerPlay() {
-  const choices = ["rock", "paper", "scissors"];
-  const randomIndex = Math.floor(Math.random() * choices.length);
-  return choices[randomIndex];
+function player() {
+  playerName = prompt("What is your name?");
+  alert(`Welcome ${playerName}!`);
 }
+
+function computerPlay () {
+  const choices = ["rock", "paper", "scissors"];
+  let randomIndex = Math.floor(Math.random() * choices.length);
+  return choices[randomIndex];
+  }
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    return "It's a tie!";
-  } else if (
-    (playerSelection === "rock" && computerSelection === "scissors") ||
-    (playerSelection === "paper" && computerSelection === "rock") ||
-    (playerSelection === "scissors" && computerSelection === "paper")
-  ) {
-    playerScore++;
-    return "You win! " + playerSelection + " beats " + computerSelection;
-  } else {
-    computerScore++;
-    return "You lose! " + computerSelection + " beats " + playerSelection;
-  }
-}
+    return "Its a tie!";
+  } 
 
-function game(playerSelection) {
+
+else if ((playerSelection.toLowerCase() === "rock" && computerSelection === "paper") || 
+    (playerSelection.toLowerCase() === "scissors" && computerSelection === "rock") ||
+    (playerSelection.toLowerCase() === "paper" && computerSelection === "scissors")) {
+    playerScore++;
+    computerScore++; 
+    return "You lost!" + computerSelection + "beats" + playerSelection;
+    } else {
+      return "You won!" + playerSelection + "beats" + computerSelection;
+    }
+  }
+function game(playSelection) {
   const computerSelection = computerPlay();
-  const result = playRound(playerSelection, computerSelection);
-  
-  const resultDiv = document.querySelector("#result");
-  resultDiv.textContent = result;
-  
+  const result = playRound(playSelection, computerSelection);
+
+  const resultsDiv = document.querySelector("#results");
+  resultsDiv.textContent = result;
+
   const scoreDiv = document.querySelector("#score");
-  scoreDiv.textContent = "Player: " + playerScore + " | Computer: " + computerScore;
-  
+  scoreDiv.textContent ="playerName: " + playerName + playerScore + "| Computer: " + computerScore;
+
   if (playerScore === 5 || computerScore === 5) {
     let winner;
     if (playerScore > computerScore) {
-      winner = "Player";
+      winner = playerName;
     } else {
       winner = "Computer";
     }
-    resultDiv.textContent = "Game over! " + winner + " wins!";
-    
-    // Disable the buttons after the game is over
-    document.querySelectorAll("button").forEach((button) => {
-      button.disabled = true;
+    resultsDiv.textContent = "Game over!" + winner + "Wins!";
+
+
+  document.querySelectorAll("button").forEach((button) => { button.disabled = true
     });
   }
 }
 
 const buttons = document.querySelectorAll("button");
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const playerSelection = button.id;
-    game(playerSelection);
-  });
+
+buttons.forEach((button) => {button.addEventListener("click", () => { const playerSelection = button.id;
+  game(playerSelection);
+});
 });
