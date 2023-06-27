@@ -5,28 +5,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JavaScript Projects</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+  
 </head>
 
 <body>
   <header>
     <h1>JavaScript Projects</h1>
+    <button id="loginButton">Login</button>
   </header>
 
-  <main>
-    <div class="projectCard">
-      <h2>Rock-Paper-Scissor Game</h2>
-      <p>In this project, I made a single page interactive rock-paper-scissor game where by a player select between rock, paper, and scissor by the click of a button and automatically know if they won or not</p>
-      <a href="rockpaperscissor.html">View Project</a>
-    </div>
+  <main id="projectContainer">
+    <!-- Project Cards Will Be Added Dynamically -->
+  </main>
 
-    <div class="projectCard">
-      <h2>Food Recipes</h2>
-      <p>In this project, I made a simple website that displays name of recipes and when you click on it, you see the details of the recipes</p>
-      <a href="project2/index.html">View Project</a>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Login</h2>
+      <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+        <input type="submit" value="Login">
+      </form>
     </div>
-    </main>
-  <script src="script.js"></script>
+  </div>
+
+  <div id="adminPanelModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Admin Panel</h2>
+      <!-- Add New Project Form Goes Here -->
+    </div>
+  </div>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyD3WsCOPj2TFEoL6y2p_fW8bq-Fx-dQfO8",
+      authDomain: "odin-projects-86d96.firebaseapp.com",
+      projectId: "odin-projects-86d96",
+      storageBucket: "odin-projects-86d96.appspot.com",
+      messagingSenderId: "348930972852",
+      appId: "1:348930972852:web:0e7b16f5a030031b07cbe1",
+      measurementId: "G-P90F9T6FD5"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+  <script src="index.js"></script>
 </body>
 
 </html>
