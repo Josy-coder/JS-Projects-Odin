@@ -19,7 +19,11 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li {
   
 
   header {
-    background-color: hsl(180, 66%, 49%);
+    background-color: hsl(0, 0%, 100%);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 20px;
   }
   
@@ -29,25 +33,54 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li {
     justify-content: space-between;
     align-items: center;
   }
-  
+
+  .logo {
+    margin-right: 20px;
+  }
+
+  nav {
+  display: flex;
+  align-items: center;
+  }
+
   nav li {
-    color: #fff;
+    color: #000000;
     cursor: pointer;
     font-weight: 500;
+    
   }
   
   nav .signup {
-    background-color: hsl(0, 87%, 67%);
+    background-color:  hsl(180, 66%, 49%);
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 20px;
     color: #fff;
   }
   
-
+  button {
+    border-radius: 20px;
+    color: #fff;
+  }
+  
+  .shorten-link .shorten-button {
+    border-radius: 5px; /* To keep the shorten button without rounded corners */
+  }
+  
+  .hero .get-started,
+  .shorten-link .shorten-button,
+  .customizable-links .get-started,
+  .boost-links .get-started {
+    background-color: hsl(180, 66%, 49%);
+    padding: 15px 30px;
+    color: #fff;
+    font-weight: 700;
+  }
   .hero {
+    display: flex;
+    justify-content: space-between;
     background-color: hsl(257, 27%, 26%);
     padding: 60px;
-    text-align: center;
+    text-align: left;
     color: #fff;
   }
   
@@ -61,151 +94,97 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li {
     font-size: 18px;
     margin-bottom: 40px;
   }
-  
-  .hero .get-started {
-    background-color: hsl(180, 66%, 49%);
-    padding: 15px 30px;
-    border-radius: 5px;
-    color: #fff;
-    font-weight: 700;
-  }
-  
-
-  .shorten-link {
+  .boost-links {
+    background-image: url('./images/bg-boost-desktop.svg');
+    background-size: cover;
     text-align: center;
-    padding: 40px;
+    padding: 60px;
+    color: #fff;
+    position: relative;
   }
   
-  .shorten-link input {
+  .boost-links::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 10px;
-    border: 1px solid hsl(0, 0%, 75%);
-    border-radius: 5px;
-    margin-bottom: 20px;
+    height: 100%;
+    background-image: url('./images/bg-boost-desktop.svg');
+    background-size: cover;
+    opacity: 0; /* Adjust the opacity as needed */
+    z-index: -1;
   }
   
-  .shorten-link .shorten-button {
-    background-color: hsl(180, 66%, 49%);
-    padding: 15px 30px;
-    border-radius: 5px;
-    color: #fff;
-    font-weight: 700;
-  }
-  
- 
-  .statistics {
-    padding: 40px;
-    text-align: center;
-  }
-  
-  .statistics h2 {
+  .boost-links h2 {
     font-weight: 700;
     font-size: 28px;
     margin-bottom: 20px;
+    color: #000000;
   }
-  
- 
-  .brand-recognition {
-    background-color: hsl(257, 7%, 63%);
-    padding: 60px;
-    text-align: center;
-    color: #fff;
-  }
-  
-  .brand-recognition h2 {
-    font-weight: 700;
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
-
-  .detailed-records {
-    padding: 40px;
-    text-align: center;
-  }
-  
-  .detailed-records h2 {
-    font-weight: 700;
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
-  
- 
-  .customizable-links {
-    background-color: hsl(255, 11%, 22%);
-    padding: 60px;
-    text-align: center;
-    color: #fff;
-  }
-  
-  .customizable-links h2 {
-    font-weight: 700;
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
-  
-  .customizable-links .get-started {
-    background-color: hsl(180, 66%, 49%);
-    padding: 15px 30px;
-    border-radius: 5px;
-    color: #fff;
-    font-weight: 700;
-  }
-
   footer {
     background-color: hsl(260, 8%, 14%);
     padding: 40px;
     text-align: center;
     color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items at the top of the container */
   }
   
-  footer nav ul {
-    list-style: none;
+  footer .footer-column {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center; /* Align items horizontally in the column */
+  }
+  
+  footer .footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  footer .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  footer .footer-column li {
+    margin-bottom: 10px;
+  }
+  
+  .footer .fab {
+    color: #fff;
+    margin-right: 10px;
+    display: flex;
     align-items: center;
   }
-  
-  footer li {
-    color: #fff;
-    cursor: pointer;
-    font-weight: 500;
-    margin-right: 20px;
-  }
-  
-  .footer .attribution {
-    font-size: 11px;
+  .statistics {
+    padding: 40px;
     text-align: center;
-    color: hsl(228, 45%, 44%);
-    margin-top: 20px;
   }
   
-  /* Media queries */
-  @media screen and (max-width: 768px) {
-    nav ul {
-      flex-direction: column;
-      align-items: center;
-    }
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
   
-    nav li {
-      margin-bottom: 10px;
-    }
+  .card {
+    background-color: #fff;
+    padding: 40px;
+    text-align: center;
+    border-radius: 15px;
+  }
   
-    .hero h1 {
-      font-size: 24px;
-    }
+  .card h2 {
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #000;
+  }
   
-    .hero p {
-      font-size: 16px;
-    }
-  
-    .hero .get-started,
-    .shorten-link .shorten-button,
-    .customizable-links .get-started {
-      font-size: 14px;
-    }
-  
-    footer li {
-      margin-right: 10px;
-    }
+  .card p {
+    font-size: 18px;
+    color: #666;
   }
   
