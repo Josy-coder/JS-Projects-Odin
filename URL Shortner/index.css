@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,500&display=swap");
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -850,7 +848,7 @@ body {
 }
 
 .info .container .info__grid-one .img {
-  background-image: url("../images/icon-brand-recognition.svg");
+  background-image: url("./images/icon-brand-recognition.svg");
   background-repeat: no-repeat;
   background-position: center;
   top: -3.5%;
