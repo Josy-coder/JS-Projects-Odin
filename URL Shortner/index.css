@@ -1134,12 +1134,12 @@ body {
     display: grid;
     -ms-grid-rows: 2fr 0.5fr;
     -ms-grid-columns: 2fr (1fr)[3] 1fr;
-        grid-template: 2fr 0.5fr/2fr repeat(3, 1fr) 1fr;
-        grid-template-areas: "logo features resources company socials" "attribution attribution attribution attribution attribution";
+    grid-template: 2fr 0.5fr/2fr repeat(3, 1fr) 1fr;
+    grid-template-areas: "logo features resources company socials" "attribution attribution attribution attribution attribution";
   }
   .footer .container .footer__logo {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
+    -ms-grid-rows: 1;
+    -ms-grid-columns: 1;
     grid-area: logo;
   }
   .footer .container .footer__features {
