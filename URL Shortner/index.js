@@ -1,11 +1,11 @@
 //mobile drop down animation
-let harm_btn = document.querySelector('.harmburger-btn');
-let spanOne = document.querySelector('.harmburger-btn > span:first-child');
-let spanTwo = document.querySelector('.harmburger-btn > span:nth-child(2)');
-let spanThree = document.querySelector('.harmburger-btn > span:last-child');
+let hamburger_btn = document.querySelector('.hamburger-btn');
+let spanOne = document.querySelector('.hamburger-btn > span:first-child');
+let spanTwo = document.querySelector('.hamburger-btn > span:nth-child(2)');
+let spanThree = document.querySelector('.hamburger-btn > span:last-child');
 let dropDown = document.querySelector('#mobile__drop-down');
 
-harm_btn.addEventListener('click', (evt) => {
+hamburger_btn.addEventListener('mouseenter', (evt) => {
     if (dropDown.classList.length === 0 || dropDown.classList.contains('dropDownReturn')) {
         //remove existing return state animation class, if present
         spanOne.classList.remove('spanOneReturn');
@@ -164,6 +164,8 @@ function render(data) {
 function copyToClipboard(evt) {
     evt.target.style.backgroundColor = "#3b3054";
     evt.target.innerText = "Copied!";
+evt.target.style.backgroundColor = "";
+evt.target.innerText = "Copy";
 
     var copyText = evt.target.previousElementSibling;
 
